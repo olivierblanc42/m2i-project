@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Font: Google font 
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+// 
+
+body {
+  background-color: #1D1D1D;
+  color: white;
+  p{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  }
+  span{
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  }
+
+}
