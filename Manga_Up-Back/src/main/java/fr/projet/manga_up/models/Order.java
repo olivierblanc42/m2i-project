@@ -22,22 +22,18 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_orders_status", nullable = false)
-    private OrdersStatus idOrdersStatus;
+    private OrdersStatus ordersStatus;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_carts", nullable = false)
-    private Cart idCarts;
+    private Cart cart;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_addresses", nullable = false)
-    private Address idAddresses;
+    private Address address;
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Instant getCreatedAt() {
@@ -64,28 +60,29 @@ public class Order {
         this.invoiceDate = invoiceDate;
     }
 
-    public OrdersStatus getIdOrdersStatus() {
-        return idOrdersStatus;
-    }
+	public OrdersStatus getOrdersStatus() {
+		return ordersStatus;
+	}
 
-    public void setIdOrdersStatus(OrdersStatus idOrdersStatus) {
-        this.idOrdersStatus = idOrdersStatus;
-    }
+	public void setOrdersStatus(OrdersStatus ordersStatus) {
+		this.ordersStatus = ordersStatus;
+	}
 
-    public Cart getIdCarts() {
-        return idCarts;
-    }
+	public Cart getCart() {
+		return cart;
+	}
 
-    public void setIdCarts(Cart idCarts) {
-        this.idCarts = idCarts;
-    }
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 
-    public Address getIdAddresses() {
-        return idAddresses;
-    }
+	public Address getAddress() {
+		return address;
+	}
 
-    public void setIdAddresses(Address idAddresses) {
-        this.idAddresses = idAddresses;
-    }
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 
 }

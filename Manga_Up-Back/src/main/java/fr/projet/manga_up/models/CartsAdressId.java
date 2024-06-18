@@ -20,16 +20,8 @@ public class CartsAdressId implements Serializable {
         return idCarts;
     }
 
-    public void setIdCarts(Integer idCarts) {
-        this.idCarts = idCarts;
-    }
-
     public Integer getIdAddresses() {
         return idAddresses;
-    }
-
-    public void setIdAddresses(Integer idAddresses) {
-        this.idAddresses = idAddresses;
     }
 
     @Override

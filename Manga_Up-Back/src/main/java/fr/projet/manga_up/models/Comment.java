@@ -23,18 +23,14 @@ public class Comment {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_mangas", nullable = false)
-    private Manga idMangas;
+    private Manga manga;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_users", nullable = false)
-    private User idUsers;
+    private User user;
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getRating() {
@@ -61,20 +57,20 @@ public class Comment {
         this.comment = comment;
     }
 
-    public Manga getIdMangas() {
-        return idMangas;
-    }
+	public Manga getManga() {
+		return manga;
+	}
 
-    public void setIdMangas(Manga idMangas) {
-        this.idMangas = idMangas;
-    }
+	public void setManga(Manga manga) {
+		this.manga = manga;
+	}
 
-    public User getIdUsers() {
-        return idUsers;
-    }
+	public User getUser() {
+		return user;
+	}
 
-    public void setIdUsers(User idUsers) {
-        this.idUsers = idUsers;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 }

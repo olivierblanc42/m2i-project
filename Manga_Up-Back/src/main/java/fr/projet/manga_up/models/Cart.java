@@ -19,18 +19,14 @@ public class Cart {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_Payment_cart", nullable = false)
-    private PaymentCart idPaymentCart;
+    private PaymentCart paymentCart;
 
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_users", nullable = false)
-    private User idUsers;
+    private User user;
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Instant getCreatedAt() {
@@ -49,20 +45,21 @@ public class Cart {
         this.status = status;
     }
 
-    public PaymentCart getIdPaymentCart() {
-        return idPaymentCart;
-    }
+	public PaymentCart getPaymentCart() {
+		return paymentCart;
+	}
 
-    public void setIdPaymentCart(PaymentCart idPaymentCart) {
-        this.idPaymentCart = idPaymentCart;
-    }
+	public void setPaymentCart(PaymentCart paymentCart) {
+		this.paymentCart = paymentCart;
+	}
 
-    public User getIdUsers() {
-        return idUsers;
-    }
+	public User getUser() {
+		return user;
+	}
 
-    public void setIdUsers(User idUsers) {
-        this.idUsers = idUsers;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 
 }

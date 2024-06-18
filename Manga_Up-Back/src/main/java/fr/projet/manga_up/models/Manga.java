@@ -33,14 +33,10 @@ public class Manga {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_categories", nullable = false)
-    private Category idCategories;
+    private Category category;
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -91,12 +87,12 @@ public class Manga {
         this.pointFidelity = pointFidelity;
     }
 
-    public Category getIdCategories() {
-        return idCategories;
-    }
+	public Category getCategory() {
+		return category;
+	}
 
-    public void setIdCategories(Category idCategories) {
-        this.idCategories = idCategories;
-    }
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
 }

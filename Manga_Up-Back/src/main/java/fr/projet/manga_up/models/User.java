@@ -31,18 +31,14 @@ public class User {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_addresses", nullable = false)
-    private Address idAddresses;
+    private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_genders", nullable = false)
-    private Gender idGenders;
+    private Gender gender;
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getUsername() {
@@ -93,20 +89,21 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    public Address getIdAddresses() {
-        return idAddresses;
-    }
+	public Address getAddress() {
+		return address;
+	}
 
-    public void setIdAddresses(Address idAddresses) {
-        this.idAddresses = idAddresses;
-    }
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
-    public Gender getIdGenders() {
-        return idGenders;
-    }
+	public Gender getGender() {
+		return gender;
+	}
 
-    public void setIdGenders(Gender idGenders) {
-        this.idGenders = idGenders;
-    }
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
 
 }

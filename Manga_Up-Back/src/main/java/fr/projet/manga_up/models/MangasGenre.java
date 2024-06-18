@@ -11,35 +11,30 @@ public class MangasGenre {
     @MapsId("idMangas")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_mangas", nullable = false)
-    private Manga idMangas;
+    private Manga manga;
 
     @MapsId("idGenres")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_genres", nullable = false)
-    private Genre idGenres;
+    private Genre genre;
 
     public MangasGenreId getId() {
         return id;
     }
 
-    public void setId(MangasGenreId id) {
-        this.id = id;
-    }
+	public Manga getManga() {
+		return manga;
+	}
 
-    public Manga getIdMangas() {
-        return idMangas;
-    }
+	public void setManga(Manga manga) {
+		this.manga = manga;
+	}
 
-    public void setIdMangas(Manga idMangas) {
-        this.idMangas = idMangas;
-    }
+	public Genre getGenre() {
+		return genre;
+	}
 
-    public Genre getIdGenres() {
-        return idGenres;
-    }
-
-    public void setIdGenres(Genre idGenres) {
-        this.idGenres = idGenres;
-    }
-
+	public void setGenre(Genre genre) {
+		this.genre = genre;
+	}
 }

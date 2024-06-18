@@ -18,14 +18,10 @@ public class Picture {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_mangas", nullable = false)
-    private Manga idMangas;
+    private Manga manga;
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getBlobImg() {
@@ -44,12 +40,12 @@ public class Picture {
         this.isPoster = isPoster;
     }
 
-    public Manga getIdMangas() {
-        return idMangas;
-    }
+	public Manga getManga() {
+		return manga;
+	}
 
-    public void setIdMangas(Manga idMangas) {
-        this.idMangas = idMangas;
-    }
+	public void setManga(Manga manga) {
+		this.manga = manga;
+	}
 
 }

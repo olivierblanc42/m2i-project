@@ -20,16 +20,8 @@ public class MangasGenreId implements Serializable {
         return idMangas;
     }
 
-    public void setIdMangas(Integer idMangas) {
-        this.idMangas = idMangas;
-    }
-
     public Integer getIdGenres() {
         return idGenres;
-    }
-
-    public void setIdGenres(Integer idGenres) {
-        this.idGenres = idGenres;
     }
 
     @Override

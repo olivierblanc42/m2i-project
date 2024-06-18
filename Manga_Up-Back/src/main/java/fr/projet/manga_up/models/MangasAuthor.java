@@ -22,10 +22,6 @@ public class MangasAuthor {
         return id;
     }
 
-    public void setId(MangasAuthorId id) {
-        this.id = id;
-    }
-
     public Author getIdAuthors() {
         return idAuthors;
     }

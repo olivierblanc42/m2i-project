@@ -11,35 +11,33 @@ public class CartsAdress {
     @MapsId("idCarts")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_carts", nullable = false)
-    private Cart idCarts;
+    private Cart cart;
 
     @MapsId("idAddresses")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_addresses", nullable = false)
-    private Address idAddresses;
+    private Address address;
 
     public CartsAdressId getId() {
         return id;
     }
 
-    public void setId(CartsAdressId id) {
-        this.id = id;
-    }
+	public Cart getCart() {
+		return cart;
+	}
 
-    public Cart getIdCarts() {
-        return idCarts;
-    }
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 
-    public void setIdCarts(Cart idCarts) {
-        this.idCarts = idCarts;
-    }
+	public Address getAddress() {
+		return address;
+	}
 
-    public Address getIdAddresses() {
-        return idAddresses;
-    }
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
-    public void setIdAddresses(Address idAddresses) {
-        this.idAddresses = idAddresses;
-    }
+
 
 }

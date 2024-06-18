@@ -19,10 +19,6 @@ public class Gender {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getLabel() {
         return label;
     }

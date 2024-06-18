@@ -31,10 +31,6 @@ public class Address {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getLine1() {
         return line1;
     }
