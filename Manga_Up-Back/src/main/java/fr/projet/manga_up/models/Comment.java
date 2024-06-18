@@ -23,7 +23,7 @@ public class Comment {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_mangas", nullable = false)
-    private Mangas idMangas;
+    private Manga idMangas;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_users", nullable = false)
@@ -61,11 +61,11 @@ public class Comment {
         this.comment = comment;
     }
 
-    public Mangas getIdMangas() {
+    public Manga getIdMangas() {
         return idMangas;
     }
 
-    public void setIdMangas(Mangas idMangas) {
+    public void setIdMangas(Manga idMangas) {
         this.idMangas = idMangas;
     }
 

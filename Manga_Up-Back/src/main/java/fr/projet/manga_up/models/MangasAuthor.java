@@ -16,7 +16,7 @@ public class MangasAuthor {
     @MapsId("idMangas")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_mangas", nullable = false)
-    private Mangas idMangas;
+    private Manga idMangas;
 
     public MangasAuthorId getId() {
         return id;
@@ -34,11 +34,11 @@ public class MangasAuthor {
         this.idAuthors = idAuthors;
     }
 
-    public Mangas getIdMangas() {
+    public Manga getIdMangas() {
         return idMangas;
     }
 
-    public void setIdMangas(Mangas idMangas) {
+    public void setIdMangas(Manga idMangas) {
         this.idMangas = idMangas;
     }
 
