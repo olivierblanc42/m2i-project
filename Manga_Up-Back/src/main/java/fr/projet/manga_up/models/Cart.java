@@ -1,8 +1,17 @@
 package fr.projet.manga_up.models;
 
-import jakarta.persistence.*;
-
 import java.time.Instant;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "carts")
@@ -21,7 +30,13 @@ public class Cart {
     @JoinColumn(name = "Id_Payment_cart", nullable = false)
     private PaymentCart paymentCart;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToMany(mappedBy="cart")
+    private List<LinesOrder> linesOrder;
+
+    @OneToMany(mappedBy="ordersStatus")
+    private List<Cart> carts;
+    
+	@OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_users", nullable = false)
     private User user;
 
@@ -29,6 +44,14 @@ public class Cart {
         return id;
     }
 
+    public List<LinesOrder> getLinesOrder() {
+		return linesOrder;
+	}
+
+	public void setLinesOrder(List<LinesOrder> linesOrder) {
+		this.linesOrder = linesOrder;
+	}
+    
     public Instant getCreatedAt() {
         return createdAt;
     }
@@ -61,5 +84,11 @@ public class Cart {
 		this.user = user;
 	}
 
+	public List<Cart> getCarts() {
+		return carts;
+	}
 
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
+	}
 }

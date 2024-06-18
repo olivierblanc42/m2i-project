@@ -1,9 +1,18 @@
 package fr.projet.manga_up.models;
 
-import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "mangas")
@@ -35,7 +44,32 @@ public class Manga {
     @JoinColumn(name = "Id_categories", nullable = false)
     private Category category;
 
-    public Integer getId() {
+    @OneToMany(mappedBy="manga")
+    private List<Comment> comments;
+    
+    @OneToMany(mappedBy="manga")
+    private List<LinesOrder> linesOrder;
+    
+    @OneToMany(mappedBy="manga")
+    private List<Picture> pictures;
+    
+    public List<LinesOrder> getLinesOrder() {
+		return linesOrder;
+	}
+
+	public void setLinesOrder(List<LinesOrder> linesOrder) {
+		this.linesOrder = linesOrder;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -95,4 +129,11 @@ public class Manga {
 		this.category = category;
 	}
 
+	public List<Picture> getPictures() {
+		return pictures;
+	}
+
+	public void setPictures(List<Picture> pictures) {
+		this.pictures = pictures;
+	}
 }

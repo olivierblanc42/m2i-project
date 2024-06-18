@@ -1,8 +1,11 @@
 package fr.projet.manga_up.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,6 +17,9 @@ public class OrdersStatus {
 
     @Column(name = "label", length = 50)
     private String label;
+
+    @OneToMany(mappedBy="ordersStatus")
+    private List<Order> orders;
 
     public Integer getId() {
         return id;
@@ -27,4 +33,11 @@ public class OrdersStatus {
         this.label = label;
     }
 
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 }

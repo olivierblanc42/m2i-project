@@ -1,8 +1,14 @@
 package fr.projet.manga_up.models;
 
-import jakarta.persistence.*;
-
 import java.time.Instant;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "categories")
@@ -21,7 +27,10 @@ public class Category {
     @Column(name = "created_at")
     private Instant createdAt;
 
-    public Integer getId() {
+    @OneToMany(mappedBy="category")
+    private List<Manga> mangas;
+
+	public Integer getId() {
         return id;
     }
 
@@ -48,5 +57,13 @@ public class Category {
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
+    
+    public List<Manga> getMangas() {
+		return mangas;
+	}
+
+	public void setMangas(List<Manga> mangas) {
+		this.mangas = mangas;
+	}
 
 }

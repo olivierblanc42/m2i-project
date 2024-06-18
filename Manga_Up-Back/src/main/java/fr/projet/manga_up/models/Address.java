@@ -1,8 +1,11 @@
 package fr.projet.manga_up.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,6 +30,12 @@ public class Address {
     @Column(name = "postal_code", length = 5)
     private String postalCode;
 
+    @OneToMany(mappedBy="address")
+    private List<Order> orders;
+    
+    @OneToMany(mappedBy="address")
+    private List<User> users;
+    
     public Integer getId() {
         return id;
     }
@@ -71,4 +80,19 @@ public class Address {
         this.postalCode = postalCode;
     }
 
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 }

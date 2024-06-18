@@ -1,11 +1,13 @@
 package fr.projet.manga_up.models;
 
+import java.time.Instant;
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
-import java.time.Instant;
 
 @Entity
 @Table(name = "payment_cart")
@@ -20,7 +22,18 @@ public class PaymentCart {
     @Column(name = "created_at")
     private Instant createdAt;
 
-    public Integer getId() {
+    @OneToMany(mappedBy="paymentCart")
+    private List<Cart> carts;
+    
+    public List<Cart> getCarts() {
+		return carts;
+	}
+
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
+	}
+
+	public Integer getId() {
         return id;
     }
 
