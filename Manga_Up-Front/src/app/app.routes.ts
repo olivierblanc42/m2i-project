@@ -16,7 +16,7 @@ export const routes: Routes = [
     {path: "", component: HomeComponent},
     {path: "about", component: AboutComponent},
     {path: "contact",component:ContactComponent},
-    {path:"mention_legale",component:GeneralConditionComponent},
+    {path: "mention_legale",component:GeneralConditionComponent},
     {path: "mangas", component: MangasComponent},
     {path: "manga/:id", component: MangaComponent},
     {path: "users", component: UsersComponent},

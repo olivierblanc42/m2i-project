@@ -9,7 +9,7 @@ import { RouterOutlet, RouterModule } from '@angular/router';
     <p>
       admin-layout works!
     </p>
-        <router-outlet />
+    <router-outlet />
 
   `,
   styles: ``
