@@ -75,7 +75,7 @@ import { RouterOutlet, RouterModule } from '@angular/router';
     </footer>
 
 
-  <footer class="background-color py-3 flex flex-col px-10 ">
+  <footer class="background-color py-3 flex flex-col px-10 footer-desktop ">
 
 <div class="flex flex-row 	justify-between	"   >
     <div class=" flex flex-col	 justify-between 	">
@@ -136,7 +136,9 @@ import { RouterOutlet, RouterModule } from '@angular/router';
  .nav-desktop{
     display:none;
   }
-
+.footer-desktop{
+      display:none;
+}
      input{
       color:black;
      }
@@ -163,6 +165,11 @@ import { RouterOutlet, RouterModule } from '@angular/router';
  .nav-desktop{
     display:flex;
   }
+.footer-desktop{
+    display:flex;
+}
+
+
   .search{
     width:449px;
     input{
