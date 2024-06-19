@@ -7,24 +7,25 @@ import { BehaviorSubject, firstValueFrom } from 'rxjs';
   providedIn: 'root'
 })
 export class MangaService {
+    url="http://localhost:3000/manga";
 
     mangas=new BehaviorSubject<Manga[]>([]);
-
     manga=new BehaviorSubject<Manga | null>(null);
     
     currentMangas=this.mangas.asObservable();
     currentManga=this.manga.asObservable();
 
-    url="http://localhost:3000/manga";
 
     constructor(
         private http: HttpClient    
     ) {
-        async()=>await firstValueFrom(this.http.get<Manga[]>(this.url))
-        .then((data)=>{
-            console.log("data : ", data);
-        });
-        
+        this.http.get<Manga[]>(this.url)
+        .pipe()
+        .toPromise()
+        .then((r) => {
+           if (!r) return;
+           this.mangas.next(r);
+        })
     }
 
     getManga(id: number){
@@ -33,6 +34,7 @@ export class MangaService {
         .toPromise()
         .then((r)=>{
             if(!r) return;
+            console.log(r);
             this.manga.next(r);
         })
     }
