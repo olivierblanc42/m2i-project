@@ -3,8 +3,10 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ErrorComponent } from './pages/error/error.component';
-import { UsersComponent } from './pages/users/users.component';
-import { UserComponent } from './pages/user/user.component';
+
+import { UsersComponent } from './pages/Admin/users/users.component';
+import { UserComponent } from './pages/Admin/user/user.component';
+
 import { MangaComponent } from './pages/manga/manga.component';
 import { MangasComponent } from './pages/mangas/mangas.component';
 import { ContactComponent } from './pages/contact/contact.component';
