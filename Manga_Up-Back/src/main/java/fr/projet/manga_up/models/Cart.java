@@ -32,7 +32,7 @@ public class Cart {
 
     @OneToMany(mappedBy="cart")
     private List<LinesOrder> linesOrder;
-    
+
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_users", nullable = false)
     private User user;
