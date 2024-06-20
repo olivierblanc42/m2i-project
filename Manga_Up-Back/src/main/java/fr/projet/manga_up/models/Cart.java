@@ -32,9 +32,6 @@ public class Cart {
 
     @OneToMany(mappedBy="cart")
     private List<LinesOrder> linesOrder;
-
-    @OneToMany(mappedBy="ordersStatus")
-    private List<Cart> carts;
     
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_users", nullable = false)
@@ -82,13 +79,5 @@ public class Cart {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-	public List<Cart> getCarts() {
-		return carts;
-	}
-
-	public void setCarts(List<Cart> carts) {
-		this.carts = carts;
 	}
 }
