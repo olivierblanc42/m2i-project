@@ -16,7 +16,7 @@ import fr.projet.manga_up.services.MangaService;
 @RestController
 @RequestMapping("/api/mangas")
 public class MangaController {
-	
+
 	private static final Logger LOGGER=LoggerFactory.getLogger(MangaController.class);
 	
 	@Autowired
