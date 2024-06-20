@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.projet.manga_up.models.Manga;
+import fr.projet.manga_up.services.MangaService;
 
 @RestController
 @RequestMapping("/api/mangas")
@@ -22,10 +23,9 @@ public class MangaController {
 	private MangaService mangaService;
 	
 	@GetMapping(value="/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Manga> getMangaId(@PathVariable Long id){
+	public ResponseEntity<Manga> getMangaId(@PathVariable Integer id){
 		LOGGER.info("Obtenir un manga");
-
-//		mangaService
-		return null;
+		Manga manga=mangaService.getManga(id);
+		return ResponseEntity.ok(manga);
 	}
 }
