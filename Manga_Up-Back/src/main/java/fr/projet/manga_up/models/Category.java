@@ -3,6 +3,8 @@ package fr.projet.manga_up.models;
 import java.time.Instant;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -28,6 +30,7 @@ public class Category {
     private Instant createdAt;
 
     @OneToMany(mappedBy="category")
+    @JsonManagedReference
     private List<Manga> mangas;
 
 	public Integer getId() {
