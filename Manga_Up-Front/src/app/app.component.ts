@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { faShuffle } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule],
+  imports: [RouterOutlet, RouterModule,FontAwesomeModule],
   template: `
    <nav class="flex   py-3 justify-evenly nav-mobile" >
    <ul class="flex flex-row items-center gap-x-8 ">
@@ -14,24 +20,24 @@ import { RouterOutlet, RouterModule } from '@angular/router';
     <li><a class="icon-panier"><img src="assets/svg/carbon_shopping-cart-plus.svg" ></a></li>
    </ul>
    </nav>
+<i class="fa-solid fa-shield-halved">
 
-<nav class="py-3 flex flex-row px-10 justify-around nav-desktop">
+</i><nav class="py-3 flex flex-row px-10 justify-around nav-desktop">
       <a routerLink="/"><img  src="assets/img/logo.png" alt=""></a>
 
     <div class="mb-5 search ">
     <input type="text" id="text" class="" />
     <ul class="flex flex-row justify-around py-1">
-      <li ><a class="flex flex-row" href=""><img src="assets/svg/iconoir_book-solid.svg" alt="">Genres</a></li>
+      <li ><a class="flex flex-row" href=""><fa-icon [icon]="faBook"></fa-icon>Genres</a></li>
       <li><a class="flex flex-row" href=""><img src="assets/svg/new.svg" alt="">News</a></li>
-      <li><a class="flex flex-row" href=""><img src="assets/svg/decouverte.svg" >Découverte</a></li>
+      <li><a class="flex flex-row" href=""><fa-icon [icon]="faShuffle"></fa-icon>Découverte</a></li>
       
     </ul>
     </div>
     <div class="flex flex-row gap-10">
-    <a class="icon-panier"><img src="assets/svg/carbon_shopping-cart-plus.svg" ></a>
-    <a class="icon-user"><img src="assets/svg/bx_bx-user-check.svg" ></a>
+    <a class="icon-panier"><fa-icon [icon]="faCartShopping"></fa-icon></a>
+    <a class="icon-user"><fa-icon [icon]="faUser"></fa-icon></a>
     </div>
- 
 </nav>
 
     <router-outlet />
@@ -183,4 +189,8 @@ import { RouterOutlet, RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'app';
+  faBook = faBook;
+  faShuffle = faShuffle;
+  faCartShopping = faCartShopping;
+  faUser = faUser;
 }
