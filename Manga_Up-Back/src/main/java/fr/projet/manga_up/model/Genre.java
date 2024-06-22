@@ -7,6 +7,8 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "genres", schema = "manga_up")
 public class Genre {
@@ -25,6 +27,7 @@ public class Genre {
     @JoinTable(name = "genres_mangases",
             joinColumns = @JoinColumn(name = "genre_Id_genres"),
             inverseJoinColumns = @JoinColumn(name = "mangases_Id_mangas"))
+    @JsonIgnore
     private Set<Manga> mangases = new HashSet<>();
 
     public Set<Manga> getMangases() {
