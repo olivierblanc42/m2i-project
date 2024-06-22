@@ -15,10 +15,10 @@ import fr.projet.manga_up.service.MangaService;
 
 
 @CrossOrigin(origins ="*")
+@RestController
 @RequestMapping("/api/mangas")
 public class MangaController {
 	private static final Logger LOGGER=LoggerFactory.getLogger(MangaController.class);
-	
 	
 	@Autowired
 	private MangaService mangaService;
