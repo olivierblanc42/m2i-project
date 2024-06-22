@@ -1,4 +1,4 @@
 package fr.projet.manga_up.controller;
 
-public class MangasController {
+public class MangaController {
 }

@@ -19,7 +19,7 @@ public class Picture {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_mangas", nullable = false)
-    private Mangas idMangas;
+    private Manga idMangas;
 
     public Integer getId() {
         return id;
@@ -45,11 +45,11 @@ public class Picture {
         this.isPoster = isPoster;
     }
 
-    public Mangas getIdMangas() {
+    public Manga getIdMangas() {
         return idMangas;
     }
 
-    public void setIdMangas(Mangas idMangas) {
+    public void setIdMangas(Manga idMangas) {
         this.idMangas = idMangas;
     }
 

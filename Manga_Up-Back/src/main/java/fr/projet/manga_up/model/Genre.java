@@ -25,13 +25,13 @@ public class Genre {
     @JoinTable(name = "genres_mangases",
             joinColumns = @JoinColumn(name = "genre_Id_genres"),
             inverseJoinColumns = @JoinColumn(name = "mangases_Id_mangas"))
-    private Set<Mangas> mangases = new HashSet<>();
+    private Set<Manga> mangases = new HashSet<>();
 
-    public Set<Mangas> getMangases() {
+    public Set<Manga> getMangases() {
         return mangases;
     }
 
-    public void setMangases(Set<Mangas> mangases) {
+    public void setMangases(Set<Manga> mangases) {
         this.mangases = mangases;
     }
 
