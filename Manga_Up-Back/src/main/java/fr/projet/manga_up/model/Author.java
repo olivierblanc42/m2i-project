@@ -7,6 +7,10 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "authors", schema = "manga_up")
 public class Author {
@@ -32,6 +36,7 @@ public class Author {
     @JoinTable(name = "authors_mangases",
             joinColumns = @JoinColumn(name = "author_Id_authors"),
             inverseJoinColumns = @JoinColumn(name = "mangases_Id_mangas"))
+    @JsonIgnore
     private Set<Manga> mangases = new HashSet<>();
 
     public Set<Manga> getMangases() {
