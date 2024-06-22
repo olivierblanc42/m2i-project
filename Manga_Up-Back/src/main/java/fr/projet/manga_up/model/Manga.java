@@ -1,12 +1,23 @@
 package fr.projet.manga_up.model;
 
-import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "mangas", schema = "manga_up")
@@ -35,9 +46,9 @@ public class Manga {
     @Column(name = "point_fidelity")
     private Integer pointFidelity;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "Id_categories", nullable = false)
-    private Category idCategories;
+    private Category category;
 
     @ManyToMany(mappedBy = "mangases")
     private Set<Author> authors = new HashSet<>();
@@ -117,12 +128,14 @@ public class Manga {
         this.pointFidelity = pointFidelity;
     }
 
-    public Category getIdCategories() {
-        return idCategories;
-    }
+	public Category getCategory() {
+		return category;
+	}
 
-    public void setIdCategories(Category idCategories) {
-        this.idCategories = idCategories;
-    }
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+
 
 }
