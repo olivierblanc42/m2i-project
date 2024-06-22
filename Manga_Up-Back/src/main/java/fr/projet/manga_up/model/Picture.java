@@ -1,11 +1,12 @@
-package fr.projet.manga_up.models;
+package fr.projet.manga_up.model;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "pictures")
+@Table(name = "pictures", schema = "manga_up")
 public class Picture {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_pictures", nullable = false)
     private Integer id;
 
@@ -18,10 +19,14 @@ public class Picture {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_mangas", nullable = false)
-    private Manga manga;
+    private Mangas idMangas;
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getBlobImg() {
@@ -40,12 +45,12 @@ public class Picture {
         this.isPoster = isPoster;
     }
 
-	public Manga getManga() {
-		return manga;
-	}
+    public Mangas getIdMangas() {
+        return idMangas;
+    }
 
-	public void setManga(Manga manga) {
-		this.manga = manga;
-	}
+    public void setIdMangas(Mangas idMangas) {
+        this.idMangas = idMangas;
+    }
 
 }

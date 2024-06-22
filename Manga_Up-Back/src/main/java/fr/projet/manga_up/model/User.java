@@ -1,21 +1,16 @@
-package fr.projet.manga_up.models;
+package fr.projet.manga_up.model;
+
+import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.util.List;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema = "manga_up", uniqueConstraints = {
+        @UniqueConstraint(name = "users_AK", columnNames = {"email"})
+})
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_users", nullable = false)
     private Integer id;
 
@@ -39,25 +34,18 @@ public class User {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_addresses", nullable = false)
-    private Address address;
+    private Address idAddresses;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_genders", nullable = false)
-    private Gender gender;
+    private Gender idGenders;
 
-    @OneToMany(mappedBy="user")
-    private List<Comment> comments;
-    
-    public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-
-	public Integer getId() {
+    public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -108,21 +96,20 @@ public class User {
         this.createdAt = createdAt;
     }
 
-	public Address getAddress() {
-		return address;
-	}
+    public Address getIdAddresses() {
+        return idAddresses;
+    }
 
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+    public void setIdAddresses(Address idAddresses) {
+        this.idAddresses = idAddresses;
+    }
 
-	public Gender getGender() {
-		return gender;
-	}
+    public Gender getIdGenders() {
+        return idGenders;
+    }
 
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
-
+    public void setIdGenders(Gender idGenders) {
+        this.idGenders = idGenders;
+    }
 
 }

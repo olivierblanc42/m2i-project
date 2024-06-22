@@ -1,13 +1,14 @@
-package fr.projet.manga_up.models;
+package fr.projet.manga_up.model;
 
 import jakarta.persistence.*;
 
 import java.time.Instant;
 
 @Entity
-@Table(name = "comments")
+@Table(name = "comments", schema = "manga_up")
 public class Comment {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_comments", nullable = false)
     private Integer id;
 
@@ -21,16 +22,12 @@ public class Comment {
     @Column(name = "comment")
     private String comment;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_mangas", nullable = false)
-    private Manga manga;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_users", nullable = false)
-    private User user;
-
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getRating() {
@@ -56,21 +53,5 @@ public class Comment {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
-	public Manga getManga() {
-		return manga;
-	}
-
-	public void setManga(Manga manga) {
-		this.manga = manga;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 }

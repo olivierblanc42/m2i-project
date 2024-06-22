@@ -1,21 +1,14 @@
-package fr.projet.manga_up.models;
+package fr.projet.manga_up.model;
+
+import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "categories", schema = "manga_up")
 public class Category {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_categories", nullable = false)
     private Integer id;
 
@@ -29,12 +22,12 @@ public class Category {
     @Column(name = "created_at")
     private Instant createdAt;
 
-    @OneToMany(mappedBy="category")
-    @JsonManagedReference
-    private List<Manga> mangas;
-
-	public Integer getId() {
+    public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -60,13 +53,5 @@ public class Category {
     public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
-    
-    public List<Manga> getMangas() {
-		return mangas;
-	}
-
-	public void setMangas(List<Manga> mangas) {
-		this.mangas = mangas;
-	}
 
 }

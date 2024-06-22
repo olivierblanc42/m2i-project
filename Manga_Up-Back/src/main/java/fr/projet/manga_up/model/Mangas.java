@@ -1,25 +1,18 @@
-package fr.projet.manga_up.models;
+package fr.projet.manga_up.model;
+
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "mangas")
-public class Manga {
+@Table(name = "mangas", schema = "manga_up")
+public class Mangas {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_mangas", nullable = false)
     private Integer id;
 
@@ -44,36 +37,36 @@ public class Manga {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_categories", nullable = false)
-    @JsonBackReference
-    private Category category;
+    private Category idCategories;
 
-    @OneToMany(mappedBy="manga")
-    private List<Comment> comments;
-    
-    @OneToMany(mappedBy="manga")
-    private List<LinesOrder> linesOrder;
-    
-    @OneToMany(mappedBy="manga")
-    private List<Picture> pictures;
-    
-    public List<LinesOrder> getLinesOrder() {
-		return linesOrder;
-	}
+    @ManyToMany(mappedBy = "mangases")
+    private Set<Author> authors = new HashSet<>();
 
-	public void setLinesOrder(List<LinesOrder> linesOrder) {
-		this.linesOrder = linesOrder;
-	}
+    @ManyToMany(mappedBy = "mangases")
+    private Set<Genre> genres = new HashSet<>();
 
-	public List<Comment> getComments() {
-		return comments;
-	}
+    public Set<Genre> getGenres() {
+        return genres;
+    }
 
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
+    public void setGenres(Set<Genre> genres) {
+        this.genres = genres;
+    }
 
-	public Integer getId() {
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }
+
+    public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -124,19 +117,12 @@ public class Manga {
         this.pointFidelity = pointFidelity;
     }
 
-	public Category getCategory() {
-		return category;
-	}
+    public Category getIdCategories() {
+        return idCategories;
+    }
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
+    public void setIdCategories(Category idCategories) {
+        this.idCategories = idCategories;
+    }
 
-	public List<Picture> getPictures() {
-		return pictures;
-	}
-
-	public void setPictures(List<Picture> pictures) {
-		this.pictures = pictures;
-	}
 }

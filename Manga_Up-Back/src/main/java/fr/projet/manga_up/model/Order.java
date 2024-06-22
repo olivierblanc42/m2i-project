@@ -1,13 +1,14 @@
-package fr.projet.manga_up.models;
+package fr.projet.manga_up.model;
 
 import jakarta.persistence.*;
 
 import java.time.Instant;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "orders", schema = "manga_up")
 public class Order {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_orders", nullable = false)
     private Integer id;
 
@@ -21,19 +22,19 @@ public class Order {
     private String invoiceDate;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_orders_status", nullable = false)
-    private OrdersStatus ordersStatus;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_carts", nullable = false)
-    private Cart cart;
+    private Cart idCarts;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_addresses", nullable = false)
-    private Address address;
+    private Address idAddresses;
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Instant getCreatedAt() {
@@ -60,29 +61,20 @@ public class Order {
         this.invoiceDate = invoiceDate;
     }
 
-	public OrdersStatus getOrdersStatus() {
-		return ordersStatus;
-	}
+    public Cart getIdCarts() {
+        return idCarts;
+    }
 
-	public void setOrdersStatus(OrdersStatus ordersStatus) {
-		this.ordersStatus = ordersStatus;
-	}
+    public void setIdCarts(Cart idCarts) {
+        this.idCarts = idCarts;
+    }
 
-	public Cart getCart() {
-		return cart;
-	}
+    public Address getIdAddresses() {
+        return idAddresses;
+    }
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
+    public void setIdAddresses(Address idAddresses) {
+        this.idAddresses = idAddresses;
+    }
 
 }

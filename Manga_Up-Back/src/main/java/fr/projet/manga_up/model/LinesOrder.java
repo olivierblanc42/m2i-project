@@ -1,4 +1,4 @@
-package fr.projet.manga_up.models;
+package fr.projet.manga_up.model;
 
 import jakarta.persistence.*;
 
@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "lines_orders")
 public class LinesOrder {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_lines_orders", nullable = false)
     private Integer id;
 
@@ -14,14 +15,18 @@ public class LinesOrder {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_mangas", nullable = false)
-    private Manga manga;
+    private Mangas idMangas;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_carts", nullable = false)
-    private Cart cart;
+    private Cart idCarts;
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getNumberArticles() {
@@ -32,21 +37,20 @@ public class LinesOrder {
         this.numberArticles = numberArticles;
     }
 
-	public Manga getManga() {
-		return manga;
-	}
+    public Mangas getIdMangas() {
+        return idMangas;
+    }
 
-	public void setManga(Manga manga) {
-		this.manga = manga;
-	}
+    public void setIdMangas(Mangas idMangas) {
+        this.idMangas = idMangas;
+    }
 
-	public Cart getCart() {
-		return cart;
-	}
+    public Cart getIdCarts() {
+        return idCarts;
+    }
 
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}
-
+    public void setIdCarts(Cart idCarts) {
+        this.idCarts = idCarts;
+    }
 
 }

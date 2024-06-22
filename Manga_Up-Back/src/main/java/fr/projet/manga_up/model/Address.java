@@ -1,17 +1,16 @@
-package fr.projet.manga_up.models;
+package fr.projet.manga_up.model;
 
-import java.util.List;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "addresses")
+@Table(name = "addresses", schema = "manga_up")
 public class Address {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_addresses", nullable = false)
     private Integer id;
 
@@ -30,14 +29,27 @@ public class Address {
     @Column(name = "postal_code", length = 5)
     private String postalCode;
 
-    @OneToMany(mappedBy="address")
-    private List<Order> orders;
-    
-    @OneToMany(mappedBy="address")
-    private List<User> users;
-    
+    @ManyToMany
+    @JoinTable(name = "addresses_carts",
+            joinColumns = @JoinColumn(name = "address_Id_addresses"),
+            inverseJoinColumns = @JoinColumn(name = "carts_Id_carts"))
+    private Set<Cart> carts = new HashSet<>();
+
+    public Set<Cart> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(Set<Cart> carts) {
+        this.carts = carts;
+    }
+
+
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLine1() {
@@ -80,19 +92,4 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
-
-	public List<User> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
 }

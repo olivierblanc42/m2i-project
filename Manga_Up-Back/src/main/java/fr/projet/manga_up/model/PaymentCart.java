@@ -1,18 +1,14 @@
-package fr.projet.manga_up.models;
+package fr.projet.manga_up.model;
+
+import jakarta.persistence.*;
 
 import java.time.Instant;
-import java.util.List;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "payment_cart")
+@Table(name = "payment_cart", schema = "manga_up")
 public class PaymentCart {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_Payment_cart", nullable = false)
     private Integer id;
 
@@ -22,19 +18,12 @@ public class PaymentCart {
     @Column(name = "created_at")
     private Instant createdAt;
 
-    @OneToMany(mappedBy="paymentCart")
-    private List<Cart> carts;
-    
-    public List<Cart> getCarts() {
-		return carts;
-	}
-
-	public void setCarts(List<Cart> carts) {
-		this.carts = carts;
-	}
-
-	public Integer getId() {
+    public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLabel() {

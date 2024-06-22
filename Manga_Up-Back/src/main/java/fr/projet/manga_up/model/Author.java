@@ -1,13 +1,17 @@
-package fr.projet.manga_up.models;
+package fr.projet.manga_up.model;
 
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "authors")
+@Table(name = "authors", schema = "manga_up")
 public class Author {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_authors", nullable = false)
     private Integer id;
 
@@ -24,8 +28,26 @@ public class Author {
     @Column(name = "created_at")
     private Instant createdAt;
 
+    @ManyToMany
+    @JoinTable(name = "authors_mangases",
+            joinColumns = @JoinColumn(name = "author_Id_authors"),
+            inverseJoinColumns = @JoinColumn(name = "mangases_Id_mangas"))
+    private Set<Mangas> mangases = new HashSet<>();
+
+    public Set<Mangas> getMangases() {
+        return mangases;
+    }
+
+    public void setMangases(Set<Mangas> mangases) {
+        this.mangases = mangases;
+    }
+
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLastname() {
