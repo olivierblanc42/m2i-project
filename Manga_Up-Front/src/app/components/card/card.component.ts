@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-card',
+  selector: 'ui-card',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   template: `
-<div class="place-items-center h-screen">
-  <div class="card">
+<div class=""
+>
+  <div class="card"
+  [ngClass]="{
+    'card-manga-mobile':size === 'mobile-manga',
+    'card-manga-desktop':size === 'desktop-manga',
+    'card-gender-mobile' :size  === 'mobile-gender',
+    'card-gender-desktop' :size  === 'desktop-gender',
+
+}">
     <img src="https://images.pexels.com/photos/16645682/pexels-photo-16645682/free-photo-of-close-up-of-green-leaves.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" />
 
   </div>
@@ -14,20 +23,43 @@ import { Component } from '@angular/core';
 
   `,
   styles: [`
-         .card {
+
+          .card{
+            img{
+            border-radius: 10px;
+            }
+          }
+            
+         .card-manga-mobile {
            width: 167px;
            height: 300px;
-              img{
-                width:100%;
-                height:100%;
-                border-radius: 10px;
-                }
-              }
+          }
+          .card-manga-desktop {
+           width: 265px;
+           height: 431px;
+          }
+        
+
+             
+         .card-gender-mobile {
+           width: 240px;
+           height: 146px;
+          }
+
+          .card-gender-desktop {
+           width: 380px;
+           height: 268px;
+          }
 
 
-      
     `]
 })
 export class CardComponent {
 
+  @Input() size: "desktop-manga" | "mobile-manga" | "mobile-gender" | "desktop-gender" | "mobile" = "mobile";
+  @Input() type: "primary" | "secondary" | "danger" | "warning" | "success" = "primary";
+
+
+
 }
+
