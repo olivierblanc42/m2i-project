@@ -1,12 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { CardComponent } from '../../components/card/card.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CardComponent ],
   template: `
- 
+
+     <ui-card class=""
+             size="mobile-manga"
+             ></ui-card>
+
+
+
+
 
 <div class="py-3 bg-dark utile-mobile  ">
   <div class="flex flex-row justify-center items-center gap-11	">
