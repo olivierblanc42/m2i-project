@@ -3,6 +3,7 @@ package fr.projet.manga_up.model;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -24,7 +25,7 @@ public class Genre {
     @JoinTable(name = "genres_mangases",
             joinColumns = @JoinColumn(name = "genre_Id_genres"),
             inverseJoinColumns = @JoinColumn(name = "mangases_Id_mangas"))
-    private Set<Mangas> mangases = new LinkedHashSet<>();
+    private Set<Mangas> mangases = new HashSet<>();
 
     public Set<Mangas> getMangases() {
         return mangases;
