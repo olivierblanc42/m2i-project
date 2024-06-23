@@ -11,8 +11,8 @@ public class Picture {
     private Integer id;
 
     @Lob
-    @Column(name = "Blob_img")
-    private String blobImg;
+    @Column(name = "Blob_img", columnDefinition="blob")
+    private Byte[] img;
 
     @Column(name = "isPoster", nullable = false)
     private Boolean isPoster = false;
@@ -29,15 +29,15 @@ public class Picture {
         this.id = id;
     }
 
-    public String getBlobImg() {
-        return blobImg;
-    }
+    public Byte[] getImg() {
+		return img;
+	}
 
-    public void setBlobImg(String blobImg) {
-        this.blobImg = blobImg;
-    }
+	public void setImg(Byte[] img) {
+		this.img = img;
+	}
 
-    public Boolean getIsPoster() {
+	public Boolean getIsPoster() {
         return isPoster;
     }
 
