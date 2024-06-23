@@ -14,7 +14,7 @@ import fr.projet.manga_up.model.Manga;
 import fr.projet.manga_up.service.MangaService;
 
 
-@CrossOrigin(origins ="*")
+@CrossOrigin(origins = "*") 
 @RestController
 @RequestMapping("/api/mangas")
 public class MangaController {
@@ -23,10 +23,16 @@ public class MangaController {
 	@Autowired
 	private MangaService mangaService;
 	
+	/**
+	 * 
+	 * @param id L'id qui représente le Manga que l'on souhaite obtenir.
+	 * @return Retourne le Manga de l'id spécifié.
+	 */
 	@GetMapping(value="/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Manga> getMangaId(@PathVariable Integer id){
-		LOGGER.info("Obtenir un manga");
+	public ResponseEntity<Manga> getManga(@PathVariable Integer id){
+		LOGGER.info("Méthode getMangaId, id : {}", id);
 		Manga manga=mangaService.getManga(id);
+		LOGGER.info("Manga : {}", manga);
 		return ResponseEntity.ok(manga);
 	}
 }
