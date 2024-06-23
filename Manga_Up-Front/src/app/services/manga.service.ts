@@ -1,13 +1,19 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
 import { Manga } from '../types';
 import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MangaService {
-    url="http://localhost:3000/manga";
+    url="http://localhost:8080/api/mangas";
+
+    headers=new HttpHeaders()
+        .set("content-type", "application/json")
+        .set("Access-Control-Allow-Origin", '*');
+
 
     mangas=new BehaviorSubject<Manga[]>([]);
     manga=new BehaviorSubject<Manga | null>(null);
@@ -17,19 +23,21 @@ export class MangaService {
 
 
     constructor(
-        private http: HttpClient    
+        private http: HttpClient, 
     ) {
-        this.http.get<Manga[]>(this.url)
-        .pipe()
-        .toPromise()
-        .then((r) => {
-           if (!r) return;
-           this.mangas.next(r);
-        })
+        //this.http.get<Manga[]>(this.url)
+        //.pipe()
+        //.toPromise()
+        //.then((r) => {
+        //   if (!r) return;
+        //   this.mangas.next(r);
+        //})
     }
 
-    getManga(id: number){
-        this.http.get<Manga>(`${this.url}/${id}`)
+    getManga(id: string){
+        this.http.get<Manga>(`${this.url}/${id}`, {
+            headers: {'Access-Control-Allow-Origin': '*'}
+         })
         .pipe()
         .toPromise()
         .then((r)=>{
