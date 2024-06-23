@@ -1,6 +1,7 @@
 import { MangaService } from './../../services/manga.service';
 import { Component, OnInit } from '@angular/core';
 import { Manga } from '../../types';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-manga',
@@ -35,12 +36,19 @@ import { Manga } from '../../types';
 export class MangaComponent implements OnInit{
 
     manga!: Manga | null;
+    idUrl!: string;
 
     constructor(
-        private mangaService: MangaService
+        private mangaService: MangaService,
+        private activatedRoute: ActivatedRoute        
     ){}
-
+    
     ngOnInit(): void {
+        this.idUrl=this.activatedRoute.snapshot.paramMap.get('id')!;
+        this.mangaService.getManga(this.idUrl)
+        
         this.mangaService.currentManga.subscribe(manga=>this.manga=manga);
+        console.log("this.manga : ", this.manga);
+        
     }
 }
