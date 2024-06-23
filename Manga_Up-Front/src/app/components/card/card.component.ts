@@ -58,8 +58,4 @@ export class CardComponent {
 
   @Input() size: "desktop-manga" | "mobile-manga" | "mobile-gender" | "desktop-gender" | "mobile" = "mobile";
   @Input() type: "primary" | "secondary" | "danger" | "warning" | "success" = "primary";
-
-
-
 }
-
