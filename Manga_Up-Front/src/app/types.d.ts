@@ -48,11 +48,20 @@ export type OrdersStatus = {
     id: number;
     label: string;
 };
+
 export type PaymentCart = {
     id: number; 
     label: string; 
     createdAt: Date;
 };
+
+export type Picture = {
+    id: number;
+    img: Byte[];
+    isPoster: boolean;
+    manga:Object;
+}
+
 export type User = {
     id: number; 
     username: string; 
