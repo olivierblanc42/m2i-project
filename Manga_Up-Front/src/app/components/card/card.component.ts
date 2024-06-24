@@ -38,9 +38,7 @@ import { NgClass } from '@angular/common';
            width: 265px;
            height: 431px;
           }
-        
-
-             
+     
          .card-gender-mobile {
            width: 240px;
            height: 146px;
