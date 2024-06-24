@@ -25,6 +25,7 @@ public class SecurityConfig {
     	
 		return httpSecurity
 				.authorizeHttpRequests(auth->auth.requestMatchers(
+				"/api/pictures/**",
 	        	"/api/mangas/**",
 	        	"/swagger-ui/**", 
 	        	"/v3/api-docs/**", 
