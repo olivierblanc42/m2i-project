@@ -1,5 +1,7 @@
 package fr.projet.manga_up.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -19,6 +21,7 @@ public class Picture {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_mangas", nullable = false)
+    @JsonIgnore
     private Manga manga;
 
     public Integer getId() {
