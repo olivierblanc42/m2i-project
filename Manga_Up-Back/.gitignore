@@ -7,7 +7,7 @@ target/
 
 application.properties
 !**/src/main/resources/application.properties
-!**/src/main/**/security/
+#!**/src/main/**/security/
 
 ### STS ###
 .apt_generated
