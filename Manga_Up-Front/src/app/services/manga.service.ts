@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Manga } from '../types';
-import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
@@ -34,6 +34,10 @@ export class MangaService {
         //})
     }
 
+    /**
+     * Récupère le Manga.
+     * @param id 
+     */
     getManga(id: string){
         this.http.get<Manga>(`${this.url}/${id}`, {
             headers: {'Access-Control-Allow-Origin': '*'}
@@ -42,7 +46,7 @@ export class MangaService {
         .toPromise()
         .then((r)=>{
             if(!r) return;
-            console.log(r);
+            console.log("r : ", r);
             this.manga.next(r);
         })
     }
