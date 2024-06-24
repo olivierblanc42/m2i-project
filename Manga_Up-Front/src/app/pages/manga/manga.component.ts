@@ -1,6 +1,7 @@
+import { PictureService } from './../../services/picture.service';
 import { MangaService } from './../../services/manga.service';
 import { Component, OnInit } from '@angular/core';
-import { Manga } from '../../types';
+import { Manga, Picture } from '../../types';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -36,19 +37,24 @@ import { ActivatedRoute } from '@angular/router';
 export class MangaComponent implements OnInit{
 
     manga!: Manga | null;
+    pictures!: Picture[] | null;
     idUrl!: string;
 
     constructor(
         private mangaService: MangaService,
+        private pictureService: PictureService,
         private activatedRoute: ActivatedRoute        
     ){}
     
     ngOnInit(): void {
         this.idUrl=this.activatedRoute.snapshot.paramMap.get('id')!;
         this.mangaService.getManga(this.idUrl)
+        this.pictureService.getPicturesByIdManga(this.idUrl);
         
         this.mangaService.currentManga.subscribe(manga=>this.manga=manga);
+        this.pictureService.currentPictures.subscribe(pictures=>this.pictures=pictures);
         console.log("this.manga : ", this.manga);
+        console.log("this.manga : ", this.pictures);
         
     }
 }
