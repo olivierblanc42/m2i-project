@@ -16,7 +16,6 @@ public class Gender {
     @Column(name = "label", length = 50)
     private String label;
 
-
     public Integer getId() {
         return id;
     }

@@ -32,13 +32,17 @@ public class User {
     @Column(name = "created_at")
     private Instant createdAt;
 
+    @Lob
+    @Column(name = "pictures", columnDefinition="blob")
+    private byte[] img;
+    
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_addresses", nullable = false)
-    private Address idAddresses;
+    private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_genders", nullable = false)
-    private Gender idGenders;
+    private Gender gender;
 
     public Integer getId() {
         return id;
@@ -96,20 +100,29 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    public Address getIdAddresses() {
-        return idAddresses;
-    }
+	public byte[] getImg() {
+		return img;
+	}
 
-    public void setIdAddresses(Address idAddresses) {
-        this.idAddresses = idAddresses;
-    }
+	public void setImg(byte[] img) {
+		this.img = img;
+	}
 
-    public Gender getIdGenders() {
-        return idGenders;
-    }
+	public Address getAddress() {
+		return address;
+	}
 
-    public void setIdGenders(Gender idGenders) {
-        this.idGenders = idGenders;
-    }
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
 
 }

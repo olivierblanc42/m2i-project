@@ -24,7 +24,10 @@ public class Picture{
     @JoinColumn(name = "Id_mangas", nullable = false)
     @JsonIgnore
     private Manga manga;
-
+    
+    @Column(name = "title", length = 255)
+    private String title;
+    
     public Integer getId() {
         return id;
     }

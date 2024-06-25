@@ -32,6 +32,10 @@ public class Author {
     @Column(name = "created_at")
     private Instant createdAt;
 
+    @Lob
+    @Column(name = "pictures", columnDefinition="blob")
+    private byte[] img;
+    
     @ManyToMany
     @JoinTable(name = "authors_mangases",
             joinColumns = @JoinColumn(name = "author_Id_authors"),
@@ -87,4 +91,11 @@ public class Author {
         this.createdAt = createdAt;
     }
 
+	public byte[] getImg() {
+		return img;
+	}
+
+	public void setImg(byte[] img) {
+		this.img = img;
+	}
 }

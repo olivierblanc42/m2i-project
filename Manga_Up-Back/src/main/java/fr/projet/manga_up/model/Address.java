@@ -43,7 +43,6 @@ public class Address {
         this.carts = carts;
     }
 
-
     public Integer getId() {
         return id;
     }
@@ -91,5 +90,4 @@ public class Address {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
-
 }

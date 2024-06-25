@@ -15,11 +15,11 @@ public class LinesOrder {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_mangas", nullable = false)
-    private Manga idMangas;
+    private Manga manga;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "Id_carts", nullable = false)
-    private Cart idCarts;
+    private Cart cart;
 
     public Integer getId() {
         return id;
@@ -37,20 +37,19 @@ public class LinesOrder {
         this.numberArticles = numberArticles;
     }
 
-    public Manga getIdMangas() {
-        return idMangas;
-    }
+	public Manga getManga() {
+		return manga;
+	}
 
-    public void setIdMangas(Manga idMangas) {
-        this.idMangas = idMangas;
-    }
+	public void setManga(Manga manga) {
+		this.manga = manga;
+	}
 
-    public Cart getIdCarts() {
-        return idCarts;
-    }
+	public Cart getCart() {
+		return cart;
+	}
 
-    public void setIdCarts(Cart idCarts) {
-        this.idCarts = idCarts;
-    }
-
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
 }
