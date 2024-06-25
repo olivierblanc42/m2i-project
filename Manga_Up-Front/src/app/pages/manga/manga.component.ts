@@ -24,12 +24,11 @@ import { ActivatedRoute } from '@angular/router';
             <div>0 vote</div>
         </div>
     </div>
-    <div class="p-6">
-        <img src="/assets/img/Lazy_Sigh_of_the_Villainous_Daughter.png" alt="Lazy_Sigh_of_the_Villainous_Daughter">
+    <div class="h-30">
+        <img class="w-72" src="{{base64}}" alt="">
     </div>
   </div>
 </div>
-
   `,
   styles: ``
 })
@@ -37,9 +36,11 @@ import { ActivatedRoute } from '@angular/router';
 export class MangaComponent implements OnInit{
 
     manga!: Manga | null;
-    pictures!: Picture[] | null;
+    pictures!: Picture[];
+    picture!: Picture;
     idUrl!: string;
-
+    base64:string="data:image/webp;base64,";
+    
     constructor(
         private mangaService: MangaService,
         private pictureService: PictureService,
@@ -51,10 +52,21 @@ export class MangaComponent implements OnInit{
         this.mangaService.getManga(this.idUrl)
         this.pictureService.getPicturesByIdManga(this.idUrl);
         
-        this.mangaService.currentManga.subscribe(manga=>this.manga=manga);
-        this.pictureService.currentPictures.subscribe(pictures=>this.pictures=pictures);
-        console.log("this.manga : ", this.manga);
-        console.log("this.manga : ", this.pictures);
-        
+        this.mangaService.currentManga.subscribe(manga=>{
+            this.manga=manga
+        });
+
+        this.pictureService.currentPictures.subscribe(pictures=>{
+            this.pictures=pictures;
+            for (const picture of this.pictures) {
+                if(picture.isPoster) {
+                    this.picture=picture;
+                    break;
+                };
+            }
+            this.base64=this.base64+this.picture.img;
+        });
+
     }
 }
+
