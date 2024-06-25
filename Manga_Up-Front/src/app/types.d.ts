@@ -11,8 +11,8 @@ export type Cart = {
     id: number;
     createdAt: Date;
     status: string;
-    idPaymentCart: Object;
-    idUsers: Object;
+    paymentCart: PaymentCart;
+    user: User;
 };
 
 export type Category = {
@@ -41,7 +41,7 @@ export type Manga = {
     createdAt: Date;
     price: number;
     pointFidelity: number;
-    idCategory: Object;
+    category: Category;
 };
 
 export type OrdersStatus = {
@@ -59,7 +59,7 @@ export type Picture = {
     id: number;
     img:string;
     isPoster: boolean;
-    manga:Object;
+    manga:Manga;
 }
 
 export type User = {
@@ -70,6 +70,6 @@ export type User = {
     fisrtname: string; 
     lastname: string; 
     createdAt: Date; 
-    idAddresses: Object; 
-    idGenders: Object;
+    address: Address; 
+    gender: Gender;
 };
