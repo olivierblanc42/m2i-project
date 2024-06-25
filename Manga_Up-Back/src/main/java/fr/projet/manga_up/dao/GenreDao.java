@@ -1,5 +1,9 @@
 package fr.projet.manga_up.dao;
 
-public interface GenreDao {
+import org.springframework.data.repository.CrudRepository;
+
+import fr.projet.manga_up.model.Genre;
+
+public interface GenreDao extends CrudRepository<Genre, Integer> {
 
 }
