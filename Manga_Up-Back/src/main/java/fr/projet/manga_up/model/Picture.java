@@ -6,15 +6,16 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "pictures", schema = "manga_up")
-public class Picture {
-    @Id
+public class Picture{
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id_pictures", nullable = false)
     private Integer id;
 
     @Lob
     @Column(name = "Blob_img", columnDefinition="blob")
-    private Byte[] img;
+    private byte[] img;
 
     @Column(name = "isPoster", nullable = false)
     private Boolean isPoster = false;
@@ -32,11 +33,11 @@ public class Picture {
         this.id = id;
     }
 
-    public Byte[] getImg() {
+	public byte[] getImg() {
 		return img;
 	}
 
-	public void setImg(Byte[] img) {
+	public void setImg(byte[] img) {
 		this.img = img;
 	}
 
