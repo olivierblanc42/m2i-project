@@ -57,7 +57,7 @@ export type PaymentCart = {
 
 export type Picture = {
     id: number;
-    img: Byte[];
+    img:string;
     isPoster: boolean;
     manga:Object;
 }
