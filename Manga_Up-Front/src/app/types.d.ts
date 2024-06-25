@@ -42,6 +42,8 @@ export type Manga = {
     price: number;
     pointFidelity: number;
     category: Category;
+    genres: Genre[];
+    author: Author;
 };
 
 export type OrdersStatus = {
