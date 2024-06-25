@@ -32,7 +32,6 @@ export class PictureService {
         .toPromise()
         .then((r)=>{
             if(!r) return;
-            console.log("Pictures r : ", r);
             this.pictures.next(r);
         })
     }
