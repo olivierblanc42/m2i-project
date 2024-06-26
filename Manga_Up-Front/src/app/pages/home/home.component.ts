@@ -14,7 +14,7 @@ import { CardComponent } from '../../components/card/card.component';
 
 
 
-
+      
 <div class="py-3 bg-dark utile-mobile  ">
   <div class="flex flex-row justify-center items-center gap-11	">
     <img src="assets/svg/shield.svg" alt="">
