@@ -1,21 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CardComponent } from '../../components/card/card.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, CardComponent ],
+  imports: [RouterModule, CardComponent, FontAwesomeModule],
   template: `
 
-     <ui-card class=""
+     <!-- <ui-card class=""
              size="mobile-manga"
-             ></ui-card>
+             ></ui-card> -->
+
+<section>
+
+    <a routerLink="/mangas"  class="flex flex-row items-center	gap-2">
+      <h2>Manga</h2>
+   <fa-icon [icon]="faArrowRight"></fa-icon>
+  </a>
+<div>
+
+</div> 
+</section>
 
 
-
-
-
-<div class="py-3 bg-dark utile-mobile  ">
+  <!-- start mobile   -->
+<!-- <div class="py-3 bg-dark utile-mobile  ">
   <div class="flex flex-row justify-center items-center gap-11	">
     <img src="assets/svg/shield.svg" alt="">
     <p>Fiable et sûr <br>10,000 référence</p>
@@ -33,7 +44,10 @@ import { CardComponent } from '../../components/card/card.component';
      et le meilleur pour agrandir votre collection <br>
      <span>1500 </span>avis
     </p>
-</div>
+</div> -->
+<!-- end mobile -->
+
+
 
 
 <div class="py-3 bg-dark flex flex-row justify-center items-center gap-10	utile-desktop">
@@ -48,14 +62,24 @@ import { CardComponent } from '../../components/card/card.component';
     <img src="assets/svg/customer-service.svg"  alt="">
     <p>Service client <br> disponibles 24/7</p>
   </div>
-    <img src="assets/img/line-desktop2.png"  alt="">
+    <img src="assets/img/line-desktop2.png" class="line-none" alt="">
 
-  <div>
+  <div class="stars-none flex flex-col	 justify-center ">
     <img class="mx-auto " src="assets/img/stars.png" alt="">
     <p>Score <span>4.1 </span>| <span>1500 avis</span></p>
   </div>
 
 </div>
+<section>
+
+    <a class="flex flex-row items-center	gap-2">
+      <h2>Les plus vue</h2>
+   <fa-icon [icon]="faArrowRight"></fa-icon>
+  </a>
+<div>
+
+</div>
+</section>
 
 <div class="bg-dark flex flex-col py-3 text-center avis-desktop">
              <img class="mx-auto py-3" src="assets/img/stars.png" alt="">
@@ -64,8 +88,20 @@ import { CardComponent } from '../../components/card/card.component';
      <span>1500 </span>avis
     </p>
 </div>
+<section>
 
+    <a routerLink="/genres"  class="flex flex-row items-center	gap-2">
+      <h2 >Genre</h2>
+   <fa-icon [icon]="faArrowRight"></fa-icon>
+  </a>
+<div>
 
+</div>
+</section>
+
+<div class="bg-dark flex flex-col py-3 text-center uppercase">
+   <p>La référence dans le manga plus de 10 000 mangas</p>
+</div>
 
   `,
   styles: [`
@@ -73,29 +109,27 @@ import { CardComponent } from '../../components/card/card.component';
        background-color: #101010;
       }
 
-.utile-desktop{
-    display:none;
-   }
-.avis-desktop{
-      display:none;
+
+a{
+  color:#E7E08B;
+  text-transform: uppercase
 }
+.line-none{
+  display:none;
+}
+.stars-none{
+  display:none;
+}
+
 
 @media (min-width: 1250px) { 
 
-   .utile-desktop{
-    display:flex;
-   }
-
-.avis-desktop{
-      display:flex;
+    .stars-none{
+  display:flex;
 }
-
-  .utile-mobile{
-    display:none;
-  }
-  .avis-mobile{
-        display:none;
-  }
+.line-none{
+  display:flex;
+}
  }
 
 
@@ -106,7 +140,7 @@ import { CardComponent } from '../../components/card/card.component';
 })
 export class HomeComponent implements OnInit {
 
-  ;
+  faArrowRight = faArrowRight ;
 
   ngOnInit(): void {
 

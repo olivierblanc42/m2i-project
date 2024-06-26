@@ -11,6 +11,8 @@ import { MangaComponent } from './pages/manga/manga.component';
 import { MangasComponent } from './pages/mangas/mangas.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { GeneralConditionComponent } from './pages/general-condition/general-condition.component';
+import { GenresComponent } from './pages/genres/genres.component';
+
 
 export const routes: Routes = [
     {path: "", component: HomeComponent},
@@ -19,6 +21,7 @@ export const routes: Routes = [
     {path: "mention_legale",component:GeneralConditionComponent},
     {path: "mangas", component: MangasComponent},
     {path: "manga/:id", component: MangaComponent},
+    { path: "genres", component: GenresComponent },
     {path: "users", component: UsersComponent},
     {path: "users/:id", component: UserComponent},
     {path: "error/:code", component: ErrorComponent},
