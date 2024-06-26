@@ -203,6 +203,8 @@ import { faBook, faSearch, faUser, faCartShopping, faShuffle } from '@fortawesom
       background-color: transparent;
       color: white;
       border: solid 2px;
+      border-top-right-radius: 0%;
+      border-bottom-right-radius: 0%;
       border-color: #E7E08B; 
     }
     input:focus{
@@ -217,35 +219,7 @@ import { faBook, faSearch, faUser, faCartShopping, faShuffle } from '@fortawesom
  }
 
 
-.topnav {
-  width:449px;
-  background-color: rgba(0,0,0,0.5);
-       border-radius: 30px;   
 
-  overflow: hidden;
-  background-color: #e9e9e9;
-  input[type=text] {  
-  border: none;
-        width:95%;
-       border-radius: 30px;   
-      background-color: rgba(0,0,0,0.5);
-      color: white;
-      border: solid 2px;
-      border-color: #E7E08B; 
-
-}
-    .search-container {
-  button {
-  float: right;
-  border: none;
-  cursor: pointer;
-}
-}
-}
-
-.topnav .search-container button:hover {
-  background: #ccc;
-}
 
 
 
