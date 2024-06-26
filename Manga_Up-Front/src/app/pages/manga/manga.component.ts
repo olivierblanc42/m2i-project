@@ -40,7 +40,12 @@ import { ActivatedRoute } from '@angular/router';
             }
         </p>
         <p>Thèmes : </p>
-        <p>Auteur : </p>
+        <p class="genres flex flex-wrap">
+            Auteur : 
+            @for (author of manga?.authors; track author.id) {
+                <span class="ml-4">{{author?.lastname}}</span>
+            }
+        </p>
         <p>Éditeur VO : </p>
         <p>Éditeur VF : </p>
         <p>Prépublié dans : </p>
