@@ -43,7 +43,7 @@ export type Manga = {
     pointFidelity: number;
     category: Category;
     genres: Genre[];
-    author: Author;
+    authors: Author[];
 };
 
 export type OrdersStatus = {
