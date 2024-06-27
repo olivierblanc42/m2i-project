@@ -58,6 +58,9 @@ public class Manga {
     @OneToMany(mappedBy="manga")
     private List<Picture> pictures;
 
+    @OneToMany(mappedBy="manga")
+    private List<Comment> comments;
+    
     public Set<Genre> getGenres() {
         return genres;
     }
@@ -138,6 +141,20 @@ public class Manga {
 		this.category = category;
 	}
 
+	public List<Picture> getPictures() {
+		return pictures;
+	}
 
+	public void setPictures(List<Picture> pictures) {
+		this.pictures = pictures;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
 }
