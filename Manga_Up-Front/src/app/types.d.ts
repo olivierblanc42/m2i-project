@@ -75,3 +75,11 @@ export type User = {
     address: Address; 
     gender: Gender;
 };
+
+export type Comment = {
+    id: number;
+    rating: number;
+    createdAt: Date;
+    comment: string;
+
+}
