@@ -1,7 +1,7 @@
 package fr.projet.manga_up.service;
 
+import java.util.List;
 import java.util.Optional;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,4 +25,10 @@ public class MangaService {
 			return mo.get();
 		}
 	}
+
+	public List<Manga> getTenManga() {
+		List<Manga> mangas = mangaDao.FindTenManga();
+		return mangas;
+	}
+
 }
