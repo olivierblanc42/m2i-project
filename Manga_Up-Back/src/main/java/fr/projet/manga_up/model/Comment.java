@@ -69,4 +69,11 @@ public class Comment {
 	public void setManga(Manga manga) {
 		this.manga = manga;
 	}
+
+	@Override
+	public String toString() {
+		return "Comment [id=" + id + ", rating=" + rating + ", createdAt=" + createdAt + ", comment=" + comment
+				+ ", manga=" + manga + "]";
+	}
+	
 }

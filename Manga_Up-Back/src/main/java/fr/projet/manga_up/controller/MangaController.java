@@ -31,9 +31,9 @@ public class MangaController {
 	 */
 	@GetMapping(value="/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Manga> getManga(@PathVariable Integer id){
-		LOGGER.info("Méthode getMangaId, id : {}", id);
+//		LOGGER.info("Méthode getMangaId, id : {}", id);
 		Manga manga=mangaService.getManga(id);
-		LOGGER.info("Manga : {}", manga);
+//		LOGGER.info("Manga : {}", manga);
 		return ResponseEntity.ok(manga);
 	}
 }
