@@ -22,10 +22,11 @@ public class SecurityConfig {
     	
 		return httpSecurity
 				.authorizeHttpRequests(auth->auth.requestMatchers(
+				"/api/comments/**",
 				"/api/pictures/**",
 	        	"/api/mangas/**",
 	        	"/api/genres/**",
-						"/api/categories/**",
+				"/api/categories/**",
 	        	"/swagger-ui/**", 
 	        	"/v3/api-docs/**", 
 	        	"/swagger-ui.html", 
