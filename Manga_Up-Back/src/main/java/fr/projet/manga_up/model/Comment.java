@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.time.Instant;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "comments", schema = "manga_up")
 public class Comment {
@@ -21,6 +23,12 @@ public class Comment {
     @Lob
     @Column(name = "comment")
     private String comment;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Id_mangas", nullable = false)
+    @JsonIgnore
+    private Manga manga;
+    
 
     public Integer getId() {
         return id;
@@ -53,5 +61,12 @@ public class Comment {
     public void setComment(String comment) {
         this.comment = comment;
     }
+    
+    public Manga getManga() {
+		return manga;
+	}
 
+	public void setManga(Manga manga) {
+		this.manga = manga;
+	}
 }
