@@ -10,11 +10,10 @@ import { NgClass } from '@angular/common';
 >
   <div class="card"
   [ngClass]="{
-    'card-manga-mobile':size === 'mobile-manga',
-    'card-manga-desktop':size === 'desktop-manga',
-    'card-gender-mobile' :size  === 'mobile-gender',
-    'card-gender-desktop' :size  === 'desktop-gender',
-
+    'card-manga':size === 'card-manga',
+    
+    'card-genre' :size  === 'card-gender',
+    
 }">
     <img src="https://images.pexels.com/photos/16645682/pexels-photo-16645682/free-photo-of-close-up-of-green-leaves.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" />
 
@@ -33,7 +32,7 @@ import { NgClass } from '@angular/common';
             }
           }
             
-         .card-manga-mobile {
+         .card-manga {
            width: 167px;
            height: 300px;
           }
@@ -42,7 +41,7 @@ import { NgClass } from '@angular/common';
            height: 431px;
           }
      
-         .card-gender-mobile {
+         .card-genre {
            width: 240px;
            height: 146px;
           }
@@ -57,6 +56,6 @@ import { NgClass } from '@angular/common';
 })
 export class CardComponent {
 
-  @Input() size: "desktop-manga" | "mobile-manga" | "mobile-gender" | "desktop-gender" | "mobile" = "mobile";
+  @Input() size: "desktop-manga" | "card-manga" | "card-gender" | "desktop-gender" | "card-manga" = "card-manga";
   @Input() type: "primary" | "secondary" | "danger" | "warning" | "success" = "primary";
 }
