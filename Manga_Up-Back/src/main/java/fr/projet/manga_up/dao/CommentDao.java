@@ -8,6 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 import fr.projet.manga_up.model.Comment;
 
 public interface CommentDao extends CrudRepository<Comment, Integer> {
-	@Query(value="SELECT * FROM comments p WHERE p.id_mangas = :id", nativeQuery=true)
+	@Query(value="SELECT * FROM comments c WHERE c.id_mangas = :id", nativeQuery=true)
 	List<Comment> findAllById(Integer id);
 }

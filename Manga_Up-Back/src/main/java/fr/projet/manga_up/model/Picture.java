@@ -17,7 +17,7 @@ public class Picture{
     @Column(name = "Blob_img", columnDefinition="blob")
     private byte[] img;
 
-    @Column(name = "isPoster", nullable = false)
+    @Column(name = "is_Poster", nullable = false)
     private Boolean isPoster = false;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
