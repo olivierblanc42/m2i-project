@@ -36,4 +36,13 @@ public class MangaController {
 		LOGGER.info("Manga : {}", manga);
 		return ResponseEntity.ok(manga);
 	}
+
+	@GetMapping()
+	public ResponseEntity<?> getTenManga() {
+		LOGGER.info("Récupération de 10 manga");
+		Manga manga = (Manga) mangaService.getTenManga();
+		LOGGER.info("Manga : {}", manga);
+		return ResponseEntity.ok(manga);
+	}
+
 }
