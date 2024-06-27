@@ -10,7 +10,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
   template: `
 
 
-<section class="container mx-auto px-1 my-5		">
+<section class="container mx-auto px-5 md:px-10  my-5	">
 
     <a routerLink="/mangas" class="flex flex-row items-center	gap-2">
         <h2 class="my-5">Manga</h2>
@@ -47,7 +47,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
     </div>
 
 </div>
-<section class="container mx-auto  px-1 my-5	">
+<section class="container mx-auto px-5 md:px-10	my-5	">
 
     <a class="flex flex-row items-center 	gap-2 ">
         <h2 class="my-5">Les plus vue</h2>
@@ -66,7 +66,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
         <span>1500 </span>avis
     </p>
 </div>
-<section class="container mx-auto  px-1 my-5	">
+<section class="container mx-auto px-5 md:px-10	my-5	">
 
     <a routerLink="/genres" class="flex flex-row items-center	gap-2">
         <h2 class="my-5">Genre</h2>
@@ -81,6 +81,12 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 <div class="bg-dark flex flex-col py-3 text-center uppercase">
     <p>La référence dans le manga plus de 10 000 mangas</p>
 </div>
+
+
+<section class="mx-auto ">
+        <ui-card class="" size="card-manga"></ui-card>
+
+</section>
 
 `,
   styles: [`

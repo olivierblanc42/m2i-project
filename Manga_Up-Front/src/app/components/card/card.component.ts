@@ -12,7 +12,7 @@ import { NgClass } from '@angular/common';
   [ngClass]="{
     'card-manga':size === 'card-manga',
     
-    'card-genre' :size  === 'card-gender',
+    'card-genre' :size  === 'card-genre',
     
 }">
     <img src="https://images.pexels.com/photos/16645682/pexels-photo-16645682/free-photo-of-close-up-of-green-leaves.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" />
@@ -28,7 +28,7 @@ import { NgClass } from '@angular/common';
             img{
             border-radius: 10px;
             height:100%;
-            width:100;
+            width:100%;
             }
           }
             
@@ -56,6 +56,6 @@ import { NgClass } from '@angular/common';
 })
 export class CardComponent {
 
-  @Input() size: "desktop-manga" | "card-manga" | "card-gender" | "desktop-gender" | "card-manga" = "card-manga";
+  @Input() size: "desktop-manga" | "card-manga" | "card-genre" | "desktop-gender" | "card-manga" = "card-manga";
   @Input() type: "primary" | "secondary" | "danger" | "warning" | "success" = "primary";
 }
