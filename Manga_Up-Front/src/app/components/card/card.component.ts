@@ -1,5 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { PictureService } from './../../services/picture.service';
+import { MangaService } from './../../services/manga.service';
+import { Manga, Picture } from '../../types';
+import { ActivatedRoute } from '@angular/router';
+
+
 
 @Component({
   selector: 'ui-card',

@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 import { CardComponent } from '../../components/card/card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -67,7 +69,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
     </p>
 </div>
 <section class="container mx-auto px-5 md:px-10	my-5	">
-
+          
     <a routerLink="/genres" class="flex flex-row items-center	gap-2">
         <h2 class="my-5">Genre</h2>
         <fa-icon [icon]="faArrowRight"></fa-icon>
