@@ -5,6 +5,7 @@ import { Manga, Picture } from '../../types';
 import { ActivatedRoute } from '@angular/router';
 import { faBookBookmark, faMessage, faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommentService } from '../../services/comment.service';
 
 @Component({
   selector: 'app-manga',
@@ -86,8 +87,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         <div class="commentaries-box">
             <div class="mb-12"><p class="comments-title h-20  pl-4 pt-8 background-color-black-c16a25">COMMENTAIRES (6)</p></div>
             <ul class="mb-12">
-                <li><p class="comment-user h-24 pl-4 pt-8 background-color-black-c16a25">commentaires</p></li>
-                <li><p class="comment-body h-24 pl-4 pt-8 background-color-black-c37a50">commentaires</p></li>
+                @for (comment of comments; track comment) {
+                    <!--{{log(comment)}}-->
+                    <li><p class="comment-user h-24 pl-4 pt-8 background-color-black-c16a25"></p></li>
+                }
             </ul>
             <div class="comment-end h-20 pl-4 pt-8 background-color-black-c16a25 uppercase"></div>
         </div>
@@ -160,8 +163,10 @@ export class MangaComponent implements OnInit{
     manga!: Manga | null;
     pictures!: Picture[];
     picture!: Picture;
+    comments!: Comment[];
     idUrl!: string;
     base64:string="data:image/webp;base64,";
+
 
     //Icon list
     faStar=faStar;
@@ -172,6 +177,7 @@ export class MangaComponent implements OnInit{
     constructor(
         private mangaService: MangaService,
         private pictureService: PictureService,
+        private commentService: CommentService,
         private activatedRoute: ActivatedRoute        
     ){}
     
@@ -179,6 +185,7 @@ export class MangaComponent implements OnInit{
         this.idUrl=this.activatedRoute.snapshot.paramMap.get('id')!;
         this.mangaService.getManga(this.idUrl)
         this.pictureService.getPicturesByIdManga(this.idUrl);
+        this.commentService.getCommentsById(this.idUrl);
         
         this.mangaService.currentManga.subscribe(manga=>{
             this.manga=manga
@@ -195,9 +202,13 @@ export class MangaComponent implements OnInit{
                 };
             }
             this.base64=this.base64+this.picture.img;
-            console.log("this.base64 : ", this.base64);
-            
         });
+
+        this.commentService.currentComments.subscribe(comments=>{
+            console.log("comments : ", comments);
+            
+            //this.comments=comments;
+        })
     }
 
     strToLowerCaseAndFirstLetter(){
@@ -208,6 +219,11 @@ export class MangaComponent implements OnInit{
             }
         }
     }
+
+    log(val: Object){
+        console.log(val);
+    }
+    
 }
 
 
