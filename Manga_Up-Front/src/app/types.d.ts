@@ -1,3 +1,4 @@
+import { Manga } from './types.d';
 
 export type Author = {
     id: number;
@@ -21,6 +22,13 @@ export type Category = {
     description: string; 
     createdAt: Date; 
 };
+
+export type Comment = {
+    id: number;
+    rating: number;
+    createdAt: Date;
+    comment: string;
+}
 
 export type Gender = {
     id: number;
@@ -59,9 +67,9 @@ export type PaymentCart = {
 
 export type Picture = {
     id: number;
-    img:string;
+    img: string;
     isPoster: boolean;
-    manga:Manga;
+    title: string;
 }
 
 export type User = {
@@ -75,11 +83,3 @@ export type User = {
     address: Address; 
     gender: Gender;
 };
-
-export type Comment = {
-    id: number;
-    rating: number;
-    createdAt: Date;
-    comment: string;
-
-}
