@@ -21,7 +21,7 @@ export class PictureService {
     ) { }
 
     /**
-     * Récupère les images d'un manga en fonction de son id.
+     * Récupère tout les images qui sont liés à un manga.
      * @param id :Id du manga
      */
     getPicturesByIdManga(id: string){
@@ -36,3 +36,4 @@ export class PictureService {
         })
     }
 }
+
