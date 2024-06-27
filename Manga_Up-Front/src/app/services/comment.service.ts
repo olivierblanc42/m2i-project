@@ -7,33 +7,32 @@ import { Comment } from '../types';
     providedIn: 'root'
 })
 export class CommentService {
-    url="http//localhost:8080/api/comments";
+    url="http://localhost:8080/api/comments";
 
     headers=new HttpHeaders()
         .set("content-type", "application/json")
         .set("Access-Control-Allow-Origin", '*');
-        
-    comments=new BehaviorSubject<Comment[]>([])
+
+    comments=new BehaviorSubject<Comment[]>([]);
     currentComments=this.comments.asObservable();
 
 
     constructor(
-        private http: HttpClient) { }
+        private http: HttpClient
+    ) { }
 
     /**
      * Récupère tout les commentaires qui sont liés à un manga.
      * @param id Id du manga.
      */
-    getCommentsById(id: string){
+    getCommentsByIdManga(id: string){
         this.http.get<Comment[]>(`${this.url}/${id}`, {
             headers: {'Access-Control-Allow-Origin': '*'}
         })
         .pipe()
         .toPromise()
-        .then(r=>{
+        .then((r)=>{
             if(!r)return;
-            console.log("r comments : ", r);
-            
             this.comments.next(r);
         })
     }

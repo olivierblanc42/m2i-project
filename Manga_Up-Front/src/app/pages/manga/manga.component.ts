@@ -1,11 +1,11 @@
 import { PictureService } from './../../services/picture.service';
+import { CommentService } from '../../services/comment.service';
 import { MangaService } from './../../services/manga.service';
 import { Component, OnInit } from '@angular/core';
-import { Manga, Picture } from '../../types';
+import { Comment, Manga, Picture } from '../../types';
 import { ActivatedRoute } from '@angular/router';
 import { faBookBookmark, faMessage, faHeart, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CommentService } from '../../services/comment.service';
 
 @Component({
   selector: 'app-manga',
@@ -87,9 +87,9 @@ import { CommentService } from '../../services/comment.service';
         <div class="commentaries-box">
             <div class="mb-12"><p class="comments-title h-20  pl-4 pt-8 background-color-black-c16a25">COMMENTAIRES (6)</p></div>
             <ul class="mb-12">
-                @for (comment of comments; track comment) {
-                    <!--{{log(comment)}}-->
-                    <li><p class="comment-user h-24 pl-4 pt-8 background-color-black-c16a25"></p></li>
+                @for (comment of comments; track comment.id) {
+                    <li><p class="comment-user h-24 pl-4 pt-8 mt-8 background-color-black-c16a25"></p></li>
+                    <li><p class="comment-body h-24 pl-4 pt-8 background-color-black-c37a50">{{comment.comment}}</p></li>
                 }
             </ul>
             <div class="comment-end h-20 pl-4 pt-8 background-color-black-c16a25 uppercase"></div>
@@ -185,7 +185,7 @@ export class MangaComponent implements OnInit{
         this.idUrl=this.activatedRoute.snapshot.paramMap.get('id')!;
         this.mangaService.getManga(this.idUrl)
         this.pictureService.getPicturesByIdManga(this.idUrl);
-        this.commentService.getCommentsById(this.idUrl);
+        this.commentService.getCommentsByIdManga(this.idUrl);
         
         this.mangaService.currentManga.subscribe(manga=>{
             this.manga=manga
@@ -205,9 +205,7 @@ export class MangaComponent implements OnInit{
         });
 
         this.commentService.currentComments.subscribe(comments=>{
-            console.log("comments : ", comments);
-            
-            //this.comments=comments;
+            this.comments=comments;
         })
     }
 
