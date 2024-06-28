@@ -32,9 +32,9 @@ public class PictureController {
 	 */
 	@GetMapping(value="/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Picture>> getPicturesByIdManga(@PathVariable Integer id){
-//		LOGGER.info("Méthode getPicturesByIdManga, id : {}", id);
+		LOGGER.info("Méthode getPicturesByIdManga, id : {}", id);
 		List<Picture> pictures=pictureService.getPicturesByIdManga(id);
-//		LOGGER.info("List pictures : {}", pictures);
+		LOGGER.info("List pictures : {}", pictures);
 		return ResponseEntity.ok(pictures);
 	}
 }
