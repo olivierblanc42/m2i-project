@@ -17,17 +17,17 @@ import fr.projet.manga_up.model.Manga;
 import fr.projet.manga_up.service.MangaService;
 
 
-@CrossOrigin(origins = "*") 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/mangas")
 public class MangaController {
 	private static final Logger LOGGER=LoggerFactory.getLogger(MangaController.class);
-	
+
 	@Autowired
 	private MangaService mangaService;
-	
+
 	/**
-	 * 
+	 *
 	 * @param id L'id qui représente le Manga que l'on souhaite obtenir.
 	 * @return Retourne le Manga de l'id spécifié.
 	 */

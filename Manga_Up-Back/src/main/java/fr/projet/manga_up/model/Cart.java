@@ -1,22 +1,16 @@
 package fr.projet.manga_up.model;
 
+import jakarta.persistence.*;
+
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
-
 @Entity
-@Table(name = "carts", schema = "manga_up")
+@Table(name = "carts", schema = "manga_up", uniqueConstraints = {
+        @UniqueConstraint(name = "carts_AK", columnNames = {"Id_users"})
+})
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +24,6 @@ public class Cart {
     private String status;
 
     @ManyToMany(mappedBy = "carts")
-    @JsonIgnore
     private Set<Address> addresses = new HashSet<>();
 
     public Set<Address> getAddresses() {

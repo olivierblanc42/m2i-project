@@ -221,4 +221,10 @@ export class MangaComponent implements OnInit{
     log(val: Object){
         console.log(val);
     }
+    
 }
+
+
+
+
+
