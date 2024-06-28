@@ -29,7 +29,7 @@ public class Comment {
     @JsonIgnore
     private Manga manga;
     
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "Id_users", nullable = false)
     private User user;
 
@@ -71,6 +71,14 @@ public class Comment {
 
 	public void setManga(Manga manga) {
 		this.manga = manga;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
