@@ -5,8 +5,8 @@ target/
 !**/src/test/**/target/
 
 
-application.properties
-!**/src/main/resources/application.properties
+!**/src/main/**/security/config/SwaggerConfig.java
+!**/src/main/resources/
 #!**/src/main/**/security/
 
 ### STS ###
