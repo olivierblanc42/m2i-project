@@ -189,6 +189,7 @@ export class MangaComponent implements OnInit{
         
         this.mangaService.currentManga.subscribe(manga=>{
             this.manga=manga
+            console.log("manga : ", manga);
             this.strToLowerCaseAndFirstLetter();
             
         });
