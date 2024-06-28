@@ -4,7 +4,11 @@ import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "addresses", schema = "manga_up")
@@ -33,8 +37,12 @@ public class Address {
     @JoinTable(name = "addresses_carts",
             joinColumns = @JoinColumn(name = "address_Id_addresses"),
             inverseJoinColumns = @JoinColumn(name = "carts_Id_carts"))
+    @JsonIgnore
     private Set<Cart> carts = new HashSet<>();
 
+    @OneToMany(mappedBy="address")
+    private List<User> users;   
+ 
     public Set<Cart> getCarts() {
         return carts;
     }
@@ -90,4 +98,12 @@ public class Address {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 }
