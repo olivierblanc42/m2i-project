@@ -3,12 +3,10 @@ package fr.projet.manga_up.model;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "addresses", schema = "manga_up")
@@ -99,6 +97,7 @@ public class Address {
         this.postalCode = postalCode;
     }
 
+
 	public List<User> getUsers() {
 		return users;
 	}
@@ -106,4 +105,17 @@ public class Address {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
+
+    //Ajout d'une méthode qui permet d'afficher l'addresse
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", line1='" + line1 + '\'' +
+                ", line2='" + line2 + '\'' +
+                ", line3='" + line3 + '\'' +
+                ", city='" + city + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                '}';
+    }
 }
