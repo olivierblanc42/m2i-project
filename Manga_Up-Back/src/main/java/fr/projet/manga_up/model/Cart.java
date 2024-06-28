@@ -4,13 +4,11 @@ import jakarta.persistence.*;
 
 import java.time.Instant;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "carts", schema = "manga_up", uniqueConstraints = {
-        @UniqueConstraint(name = "carts_AK", columnNames = {"Id_users"})
-})
+@Table(name = "carts", schema = "manga_up")
+
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
