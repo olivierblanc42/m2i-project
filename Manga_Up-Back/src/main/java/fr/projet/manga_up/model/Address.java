@@ -102,8 +102,16 @@ public class Address {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
-    
-    //Ajout d'une méthode qui permet d'afficher l'addresse
+        
+    public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+
+	//Ajout d'une méthode qui permet d'afficher l'addresse
     @Override
     public String toString() {
         return "Address{" +
