@@ -24,6 +24,7 @@ public class SecurityConfig {
 				.authorizeHttpRequests(auth->auth.requestMatchers(
 				"/api/comments/**",
 				"/api/pictures/**",
+				"/api/manga",
 	        	"/api/mangas/**",
 	        	"/api/genres/**",
 				"/api/categories/**",
