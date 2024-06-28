@@ -90,4 +90,17 @@ public class Address {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
+
+    //Ajout d'une méthode qui permet d'afficher l'addresse
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", line1='" + line1 + '\'' +
+                ", line2='" + line2 + '\'' +
+                ", line3='" + line3 + '\'' +
+                ", city='" + city + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                '}';
+    }
 }

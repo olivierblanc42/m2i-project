@@ -24,6 +24,8 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
+
+
 	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Category> getCategoryId(@PathVariable Integer id) {
 		LOGGER.info("Obtenir un manga");
