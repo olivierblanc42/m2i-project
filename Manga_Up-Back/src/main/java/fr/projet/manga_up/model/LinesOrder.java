@@ -3,7 +3,7 @@ package fr.projet.manga_up.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "lines_orders")
+@Table(name = "lines_orders", schema = "manga_up")
 public class LinesOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

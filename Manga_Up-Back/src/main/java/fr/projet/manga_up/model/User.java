@@ -5,9 +5,7 @@ import jakarta.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "users", schema = "manga_up", uniqueConstraints = {
-        @UniqueConstraint(name = "users_AK", columnNames = {"email"})
-})
+@Table(name = "users", schema = "manga_up")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
