@@ -1,9 +1,14 @@
 package fr.projet.manga_up.model;
 
-import jakarta.persistence.*;
+import java.util.List;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "genders", schema = "manga_up")
@@ -16,6 +21,9 @@ public class Gender {
     @Column(name = "label", length = 50)
     private String label;
 
+    @OneToMany(mappedBy="gender")
+    private List<User> users;
+    
     public Integer getId() {
         return id;
     }
@@ -31,5 +39,13 @@ public class Gender {
     public void setLabel(String label) {
         this.label = label;
     }
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 
 }
