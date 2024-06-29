@@ -24,13 +24,13 @@ export class MangaService {
     constructor(
         private http: HttpClient, 
     ) {
-        //this.http.get<Manga[]>(this.url)
-        //.pipe()
-        //.toPromise()
-        //.then((r) => {
-        //   if (!r) return;
-        //   this.mangas.next(r);
-        //})
+        this.http.get<Manga[]>(this.url)
+        .pipe()
+        .toPromise()
+        .then((r) => {
+          if (!r) return;
+          this.mangas.next(r);
+        })
     }
 
     /**
@@ -48,4 +48,7 @@ export class MangaService {
             this.manga.next(r);
         })
     }
+
+
+
 }
