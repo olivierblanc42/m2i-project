@@ -5,7 +5,7 @@ import { CardComponent } from '../../components/card/card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { PictureService } from './../../services/picture.service';
-import { Manga, Picture } from '../../types';
+import { Manga, Picture, Genre } from '../../types';
 
 @Component({
   selector: 'app-home',
@@ -20,11 +20,12 @@ import { Manga, Picture } from '../../types';
         <h2 class="my-5">Manga</h2>
         <fa-icon [icon]="faArrowRight"></fa-icon>
     </a>
-    <div class="content-manga">
+    <div class="content-manga ">
 @for(manga of mangas; track manga.id){
 
     <ui-card class="" size="card-manga">
        <p>{{manga.title}}</p>
+      
     </ui-card>
    
 }
@@ -119,7 +120,8 @@ display:none;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
+    flex-wrap: wrap;
+    gap: 2rem 10rem;}
 
 @media (min-width: 1250px) {
 
@@ -142,6 +144,7 @@ export class HomeComponent implements OnInit {
   faArrowRight = faArrowRight;
 
     mangas!: Manga[];
+    genre!: Genre[];
     title: string ="";
 
   constructor(private mangaService : MangaService){}
@@ -149,6 +152,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.mangaService.currentMangas.subscribe(mangas => this.mangas = mangas)
+    
   }
 
 
