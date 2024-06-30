@@ -11,7 +11,7 @@ import fr.projet.manga_up.model.Manga;
 @Repository
 public interface MangaDao extends CrudRepository<Manga, Integer> {
 
-	@Query("SELECT * FROM manga LIMIT 10 ")
+	@Query(value ="SELECT * FROM manga LIMIT 10", nativeQuery = true)
 	List<Manga> FindTenManga();
 
 }
