@@ -16,11 +16,11 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "categories", schema = "manga_up")
+@Table(name = "category", schema = "manga_up")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_categories", nullable = false)
+    @Column(name = "Id_category", nullable = false)
     private Integer id;
 
     @Column(name = "name", length = 50)

@@ -26,7 +26,7 @@ public class Order {
     private Cart cart;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_addresses", nullable = false)
+    @JoinColumn(name = "Id_address", nullable = false)
     private Address address;
 
     public Integer getId() {

@@ -12,11 +12,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name = "authors", schema = "manga_up")
+@Table(name = "author", schema = "manga_up")
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_authors", nullable = false)
+    @Column(name = "Id_author", nullable = false)
     private Integer id;
 
     @Column(name = "lastname", nullable = false, length = 100)
@@ -33,22 +33,22 @@ public class Author {
     private Instant createdAt;
 
     @Lob
-    @Column(name = "pictures", columnDefinition="blob")
+    @Column(name = "picture", columnDefinition="blob")
     private byte[] img;
     
     @ManyToMany
-    @JoinTable(name = "authors_mangases",
-            joinColumns = @JoinColumn(name = "author_Id_authors"),
-            inverseJoinColumns = @JoinColumn(name = "mangases_Id_mangas"))
+    @JoinTable(name = "author_manga",
+            joinColumns = @JoinColumn(name = "author_Id_author"),
+            inverseJoinColumns = @JoinColumn(name = "manga_Id_manga"))
     @JsonIgnore
-    private Set<Manga> mangases = new HashSet<>();
+    private Set<Manga> mangas = new HashSet<>();
 
-    public Set<Manga> getMangases() {
-        return mangases;
+    public Set<Manga> getMangas() {
+        return mangas;
     }
 
-    public void setMangases(Set<Manga> mangases) {
-        this.mangases = mangases;
+    public void setMangas(Set<Manga> mangas) {
+        this.mangas = mangas;
     }
 
     public Integer getId() {

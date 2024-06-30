@@ -10,11 +10,11 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "genres", schema = "manga_up")
+@Table(name = "genre", schema = "manga_up")
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_genres", nullable = false)
+    @Column(name = "Id_genre", nullable = false)
     private Integer id;
 
     @Column(name = "label", length = 50)
@@ -24,18 +24,18 @@ public class Genre {
     private Instant createdDate;
 
     @ManyToMany
-    @JoinTable(name = "genres_mangases",
-            joinColumns = @JoinColumn(name = "genre_Id_genres"),
-            inverseJoinColumns = @JoinColumn(name = "mangases_Id_mangas"))
+    @JoinTable(name = "genre_manga",
+            joinColumns = @JoinColumn(name = "genre_Id_genre"),
+            inverseJoinColumns = @JoinColumn(name = "manga_Id_manga"))
     @JsonIgnore
-    private Set<Manga> mangases = new HashSet<>();
+    private Set<Manga> mangas = new HashSet<>();
 
-    public Set<Manga> getMangases() {
-        return mangases;
+    public Set<Manga> getMangas() {
+        return mangas;
     }
 
-    public void setMangases(Set<Manga> mangases) {
-        this.mangases = mangases;
+    public void setMangas(Set<Manga> mangas) {
+        this.mangas = mangas;
     }
 
     public Integer getId() {

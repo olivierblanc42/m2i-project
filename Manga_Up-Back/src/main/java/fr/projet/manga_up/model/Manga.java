@@ -19,11 +19,11 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "mangas", schema = "manga_up")
+@Table(name = "manga", schema = "manga_up")
 public class Manga {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_mangas", nullable = false)
+    @Column(name = "Id_manga", nullable = false)
     private Integer id;
 
     @Column(name = "title", length = 500)
@@ -46,13 +46,13 @@ public class Manga {
     private Integer pointFidelity;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "Id_categories", nullable = false)
+    @JoinColumn(name = "Id_category", nullable = false)
     private Category category;
 
-    @ManyToMany(mappedBy = "mangases")
+    @ManyToMany(mappedBy = "mangas")
     private Set<Author> authors = new HashSet<>();
 
-    @ManyToMany(mappedBy = "mangases")
+    @ManyToMany(mappedBy = "mangas")
     private Set<Genre> genres = new HashSet<>();
     
     @OneToMany(mappedBy="manga")

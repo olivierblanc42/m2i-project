@@ -8,13 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "carts", schema = "manga_up", uniqueConstraints = {
-        @UniqueConstraint(name = "carts_AK", columnNames = {"Id_users"})
+@Table(name = "cart", schema = "manga_up", uniqueConstraints = {
+        @UniqueConstraint(name = "carts_AK", columnNames = {"Id_user"})
 })
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_carts", nullable = false)
+    @Column(name = "Id_cart", nullable = false)
     private Integer id;
 
     @Column(name = "created_at")

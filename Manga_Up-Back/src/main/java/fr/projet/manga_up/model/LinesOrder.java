@@ -3,22 +3,22 @@ package fr.projet.manga_up.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "lines_orders")
+@Table(name = "line_orders")
 public class LinesOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_lines_orders", nullable = false)
+    @Column(name = "Id_line_orders", nullable = false)
     private Integer id;
 
     @Column(name = "number_articles", nullable = false)
     private Integer numberArticles;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_mangas", nullable = false)
+    @JoinColumn(name = "Id_manga", nullable = false)
     private Manga manga;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_carts", nullable = false)
+    @JoinColumn(name = "Id_cart", nullable = false)
     private Cart cart;
 
     public Integer getId() {

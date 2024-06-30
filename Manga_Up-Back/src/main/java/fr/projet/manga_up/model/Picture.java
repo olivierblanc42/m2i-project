@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "pictures", schema = "manga_up")
+@Table(name = "picture", schema = "manga_up")
 public class Picture{
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_pictures", nullable = false)
+    @Column(name = "Id_picture", nullable = false)
     private Integer id;
 
     @Lob
@@ -21,7 +21,7 @@ public class Picture{
     private Boolean isPoster = false;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_mangas", nullable = false)
+    @JoinColumn(name = "Id_manga", nullable = false)
     @JsonIgnore
     private Manga manga;
     

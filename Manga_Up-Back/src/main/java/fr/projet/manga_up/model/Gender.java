@@ -11,11 +11,11 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "genders", schema = "manga_up")
+@Table(name = "gender", schema = "manga_up")
 public class Gender {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_genders", nullable = false)
+    @Column(name = "Id_gender", nullable = false)
     private Integer id;
 
     @Column(name = "label", length = 50)

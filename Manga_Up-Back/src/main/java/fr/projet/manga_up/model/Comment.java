@@ -7,11 +7,11 @@ import java.time.Instant;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "comments", schema = "manga_up")
+@Table(name = "comment", schema = "manga_up")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_comments", nullable = false)
+    @Column(name = "Id_comment", nullable = false)
     private Integer id;
 
     @Column(name = "rating")
@@ -25,7 +25,7 @@ public class Comment {
     private String comment;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_mangas", nullable = false)
+    @JoinColumn(name = "Id_manga", nullable = false)
     @JsonIgnore
     private Manga manga;
     

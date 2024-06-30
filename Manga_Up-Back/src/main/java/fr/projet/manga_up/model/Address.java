@@ -7,11 +7,11 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "addresses", schema = "manga_up")
+@Table(name = "address", schema = "manga_up")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_addresses", nullable = false)
+    @Column(name = "Id_address", nullable = false)
     private Integer id;
 
     @Column(name = "line1", length = 50)
@@ -30,9 +30,9 @@ public class Address {
     private String postalCode;
 
     @ManyToMany
-    @JoinTable(name = "addresses_carts",
-            joinColumns = @JoinColumn(name = "address_Id_addresses"),
-            inverseJoinColumns = @JoinColumn(name = "carts_Id_carts"))
+    @JoinTable(name = "address_cart",
+            joinColumns = @JoinColumn(name = "address_Id_address"),
+            inverseJoinColumns = @JoinColumn(name = "cart_Id_cart"))
     private Set<Cart> carts = new HashSet<>();
 
     public Set<Cart> getCarts() {

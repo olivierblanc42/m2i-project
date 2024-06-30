@@ -5,13 +5,13 @@ import jakarta.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "users", schema = "manga_up", uniqueConstraints = {
+@Table(name = "user", schema = "manga_up", uniqueConstraints = {
         @UniqueConstraint(name = "users_AK", columnNames = {"email"})
 })
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id_users", nullable = false)
+    @Column(name = "Id_user", nullable = false)
     private Integer id;
 
     @Column(name = "username", nullable = false, length = 50)
@@ -33,15 +33,15 @@ public class User {
     private Instant createdAt;
 
     @Lob
-    @Column(name = "pictures", columnDefinition="blob")
+    @Column(name = "picture", columnDefinition="blob")
     private byte[] img;
     
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_addresses", nullable = false)
+    @JoinColumn(name = "Id_address", nullable = false)
     private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Id_genders", nullable = false)
+    @JoinColumn(name = "Id_gender", nullable = false)
     private Gender gender;
 
     public Integer getId() {
